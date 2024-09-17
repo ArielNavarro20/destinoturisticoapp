@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Destinos Turísticos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let destino of destinos; let i = index">
+      <ion-thumbnail slot="start">
+        <img [src]="destino.foto" />
+      </ion-thumbnail> 
+      <ion-label>
+        <h2>{{ destino.nombre }}</h2>
+        <p>{{ destino.pais }}</p>
+        <p>{{ destino.costo | currency }}</p> 
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editarCosto(i)">Editar Costo</ion-button>
+        <ion-button color="danger" (click)="eliminarDestino(i)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+        <ion-button (click)="capturarFoto(i)">
+          <ion-icon name="camera"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
